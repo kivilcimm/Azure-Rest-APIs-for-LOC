@@ -1,16 +1,13 @@
 
-#$url_base = Read-Host 'Please write your base address'
-#$PAT = Read-Host 'Please write your organization PAT'
-$url_base = "https://unitfs.univera.com.tr/tfs/UniveraCollection/Varuna/"
-$PAT = "wvwfgra6z4gk3ptb2ctukvs4m2j56imod36vvvhbnrfmfnshipgq"
-#$user = Read-Host 'Please write your organization user name'
+$url_base = Read-Host 'Please write your base address'
+$PAT = Read-Host 'Please write your organization PAT'
+$user = Read-Host 'Please write your organization user name'
 $computer_user_name = Read-Host 'Please write your computer user name for file path'
 $file_name = Read-Host 'Please write your file name for output(please add .csv to the end of file name) '
 
 Set-Content -Path C:\Users\$computer_user_name\Desktop\$file_name -Value   "WorkID, Title, IterationPath, Add, Delete, Edit, EpicID, FeatureID, ReqID" 
 
 #Generate PAT
-$user = "huseyin.unlu"
 $token = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $user, $PAT)))
 $header = @{authorization = "Basic $token"}
 
