@@ -380,4 +380,4 @@ $repositories = Invoke-RestMethod -Uri "$url_repositories" -Method GET -ContentT
     }
 $s+=1
 }
-$final_info2| foreach { Add-Content -Path  C:\Users\$computer_user_name\Desktop\final.csv -Value $PSItem } 
+$final_info2| foreach { Add-Content -Path  C:\Users\$computer_user_name\Desktop\$file_name -Value $PSItem } 
